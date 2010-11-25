@@ -1,0 +1,40 @@
+<div id="list-color"
+	<h1><head>Users List</head></h1>
+</div>
+
+<% if @users.size > 0 %>
+	<table border="1">
+		<tr>
+		<div id="head">
+			<th>Name</th>
+		</div>
+		<th>Designation</th>
+		<th>Options</th></tr>
+		<% for user in @users %>
+			<tr>
+				<td><%= link_to user.name, :controller=>"users", :action=>"profile", :id=>user.id %></td>
+				<td><%= link_to user.designation, :controller=>"users", :action=>"list_by_designation", :designation=>user.designation %></td>
+				
+				<td class='table-links'>
+<!--					<%= link_to "Users(same name)", :controller=>"users", :action=>"list_by_name", :name=>user.name %>-->
+<!--					|-->
+					<%= link_to "Show", :controller=>"users", :action=>"show", :id=>user.id %>
+					|
+					<%= link_to "Edit", :controller=>"users", :action=>"edit", :id=>user.id %>
+					|
+					<%= link_to "Delete", {:controller=>"users", :action=>"delete", :id=>user.id}, :confirm=>"r u sure to delete" %>
+				</td>
+				
+			</tr>
+		<% end %>
+	</table>
+<% else %>
+	No users
+<% end %>
+
+<hr />
+
+<div> 
+	<span id="menu-links2"><%= link_to "New user", :controller=>"users", :action=>"new" %></span>
+</div>
+

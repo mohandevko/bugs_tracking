@@ -1,0 +1,7 @@
+<% form_tag :controller=>"comment", :action=>"update", :id=>@comment.id do %>
+	 Description <%= text_field :comment, :description %>
+	 bug_id <%= text_field :comment, :bug_id %>
+	 user_id<%= text_field :comment, :user_id %>
+	<%= submit_tag "Update" %>
+	<%= link_to "cancel", :controller=>"comment", :action=>"list" %>
+<% end %>

@@ -1,0 +1,7 @@
+<% form_tag :controller=>"projects", :action=>"create" do %>
+	<%= error_messages_for :user %>
+	Title: <%= text_field :project, :title %>
+	Description: <%= text_field :project, :description %>
+	<%= submit_tag "Save" %>
+	<%= link_to "Cancel", :controller=>"projects", :action=>"list" %>
+	<% end %>

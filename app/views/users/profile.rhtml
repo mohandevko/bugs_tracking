@@ -1,0 +1,58 @@
+Name: <%= @user.name %><br />  
+Designation: <%= @user.designation %> <br><br />
+
+<% if @projects.size > 0 %>
+<head><b> Projects list </b></head>
+
+<%= link_to_function "projectlist", "$('projectlist').toggle();" %>
+|
+<%= link_to_function "commentlist", "$('commentlist').toggle();" %>
+
+	<div id="projectlist" style="display:none;">
+	
+	<table border="2">
+		<tr><th>title </th>
+			<th>description</th></tr>
+			<% for project in @projects %>
+		<tr>
+				<td ><%= link_to project.title, :contoller=>"projects", :action=>"show", :id=>project.id %></td>
+				<td><%= project.description %></td>
+				<td><%= link_to "New Bug", :controller=>"bug", :action=>"new", :project_id=>project.id, :user_id=>@user.id %></td>
+		</tr>
+		<% end %>
+		
+</table></div>
+<% else %>
+ No projects
+<% end %>
+
+<% if @comments.size > 0 %>
+<head><h1>comment List</h1></head>
+
+<div id="commentlist" style="display:none;">
+
+<table border="5">
+		<tr>
+		<th>description</th>
+		<th>bug_id</th>
+		<th>user_id</th>
+		</tr>
+		<% for comment in @comments %>
+			<tr>
+				<td><%= comment.description %></td>
+				<td> <%= comment.bug.title %></td?
+				<td><%= comment.user.name rescue "-" %></td>
+				<td><%= link_to "Edit", :controller=>"comment", :action=>"edit", :id=>comment.id %></td>
+				<td><%= link_to "Delete", {:controller=>"comment", :action=>"delete", :id=>comment.id}, :confirm=>"r u sure to delete" %></td>
+			</tr>
+			<% end %>
+	</table></div>
+<% else %>
+	No comment
+<% end %>
+
+<%= link_to "New project", :controller=>"userprojects", :action=>"new", :user_id=>@user.id %>
+
+
+
+

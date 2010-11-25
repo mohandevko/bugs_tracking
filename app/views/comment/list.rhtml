@@ -1,0 +1,29 @@
+<h1><head>comment list</head></h1>
+<% if @comments.size > 0 %>
+	<table border="1">
+		<tr>
+		<th>description</th>
+		<th>Bugs</th>
+		<th>Users </th>
+		<th>Options</th>
+		</tr>
+		<% for comment in @comments %>
+			<tr>
+				<td><%= comment.description %></td>
+				<td> <%= comment.bug.title %></td?
+				<td><%= comment.user.name rescue "-" %></td>
+				<td><%= link_to "Edit", :controller=>"comment", :action=>"edit", :id=>comment.id %>
+				<%= link_to "Delete", {:controller=>"comment", :action=>"delete", :id=>comment.id}, :confirm=>"r u sure to delete" %></td>
+			</tr>
+			<% end %>
+	</table>
+<% else %>
+	No comment
+<% end %>
+
+<hr />
+
+<%= link_to "New Comment", :controller=>"comment", :action=>"new" %>
+
+			
+		

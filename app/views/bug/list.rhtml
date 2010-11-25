@@ -1,0 +1,40 @@
+<h1><head>Bug list</head></h1>
+<% if @bugs.size > 0 %>
+	<table border="1">
+		<tr>
+		<th>Title</th>
+		<th>Description</th>
+		<th>Status</th>
+		<th>Project Title</th>
+		<th>User Name</th>
+		<th>Options</th>
+		</tr>
+		<% for bug in @bugs %>
+			<tr>
+				<td><%= bug.title %></td>
+				<td><%= bug.description %></td>
+				<td><%= bug.status %></td>
+				<td><%= bug.project.title rescue "-" %></td>
+				<td><%= bug.user.name %></td>
+				<td class='table-links'>
+					<%= link_to "Show", :controller=>"bug", :action=>"show", :id=>bug.id %>
+					|
+					<%= link_to "Edit", :controller=>"bug", :action=>"edit", :id=>bug.id %>
+					|
+					<%= link_to "Comments", :controller=>"bug", :action=>"comment_list", :id=>bug.id %>
+					|
+					<%= link_to "Delete", {:controller=>"bug", :action=>"delete", :id=>bug.id}, :confirm=>"r u sure to delete" %>
+				</td>
+			</tr>
+			<% end %>
+	</table>
+<% else %>
+	No bugs
+<% end %>
+
+<hr />
+
+<%= link_to "New bug", :controller=>"bug", :action=>"new" %>
+
+			
+		

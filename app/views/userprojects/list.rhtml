@@ -1,0 +1,23 @@
+<h1><head> Userprojects List </head></h1>
+<% if @userprojects.size > 0 %>
+	<table border="1">
+		<tr>
+			<th><b>Users</b></th>
+			<th><b>Projects</b></th>
+			<th><b>Options</b></th>
+		</tr>
+		<% for userproject in @userprojects  %>
+			<tr>
+				<td><%= userproject.user.name %></td>
+				<td><%= userproject.project.title %></td>
+				<td><%= link_to "Edit", :controller=>"userprojects", :action=>"edit", :id=>userproject.id %>
+				<%= link_to "Delete", {:controller=>"userprojects", :action=>"delete", :id=>userproject.id}, :confirm=>"r u sure to delete" %></td>
+			</tr>
+		<% end %>
+	</table>
+<% else %>
+no userprojects
+<% end %>
+<hr />
+
+<%= link_to "new userproject", :controller=>"userprojects", :action=>"new" %>

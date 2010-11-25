@@ -1,0 +1,24 @@
+<%form_tag :controller=>"bug", :action=>"create" do %>
+	<%= hidden_field :bug, :project_id %>
+	
+	Title: <%= text_field :bug, :title %><br />
+	Description: <%= text_field :bug, :description %><br />
+	Status: <%= text_field :bug, :status %><br />
+
+	<% if @bug.project.nil? %>
+		project_id: <%= collection_select :bug, :project_id, @projects, :id , :title %>
+	<% else %>
+		<% hidden_field :bug, :project_id %> 
+	<% end %>
+
+	<% if @bug.user.nil? %>
+		User_id: <%= collection_select :bug, :user_id, @users, :id, :name %>
+	<% else %>
+		<% hidden_field :bug, :user_id %>
+	<% end %>
+	
+	<%= submit_tag "save" %>
+	<%= link_to "cancel", :controller=>"bug", :action=>"list" %>
+	
+<% end %>
+

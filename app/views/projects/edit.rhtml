@@ -1,0 +1,6 @@
+<% form_tag :controller=>"projects", :action=>"update", :id=>@mohan.id do %>
+	Title <%= text_field :mohan, :title %>
+	Description <%= text_field :mohan, :description %>
+	<%= submit_tag "Update" %>
+	<%= link_to "cancel", :controller=>"projects", :action=>"list" %>
+<% end %>

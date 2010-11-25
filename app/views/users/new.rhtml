@@ -1,0 +1,5 @@
+<% form_tag :controller=>"users", :action=>"create" do %>
+	<%= render :partial=>"form" %>
+	<%= submit_tag "Save" %>
+	<%= link_to "Cancel", :controller=>"users", :action=>"list" %>
+	<% end %>

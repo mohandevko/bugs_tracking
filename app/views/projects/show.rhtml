@@ -1,0 +1,33 @@
+
+	Title: <%= @project.title %><br />
+	
+  Description: <%= @project.description %>
+  
+  
+<h1><head>Bug list</head></h1>
+	<% if @bugs.size > 0 %>
+	<table border="7">
+		<tr>
+		<th>title</th>
+		<th>description</th>
+		<th>status</th>
+		<th>User Name</th>
+		</tr>
+		<% for bug in @bugs %>
+			<tr>
+				<td><%= bug.title %></td>
+				<td><%= bug.description %></td>
+				<td><%= bug.status %></td>
+				<td><%= bug.user.name %></td>
+				<td><%= link_to "Edit", :controller=>"bug", :action=>"edit", :id=>bug.id %></td>
+				<td><%= link_to "Comments", :controller=>"bug", :action=>"comment_list", :id=>bug.id %></td>
+				<td><%= link_to "Delete", {:controller=>"bug", :action=>"delete", :id=>bug.id}, :confirm=>"r u sure to delete" %></td>
+			</tr>
+			<% end %>
+	</table>
+<% else %>
+	No bugs
+<% end %>
+
+<%= link_to "Create Bug", :controller=>"bug", :action=>"new", :project_id=>@project.id %>
+

@@ -1,0 +1,10 @@
+<%form_tag :controller=>"comment", :action=>"create" do %>
+	<%= error_messages_for :comment %>
+	Description: <%= text_field :comment, :description %>
+	bug_id: <%= collection_select :comment, :bug_id, @bugs, :id, :title %> 
+	User_id: <%= collection_select :comment, :user_id, @users, :id, :name %>
+	<%= submit_tag "save" %>
+	<%= link_to "cancel", :controller=>"comment", :action=>"list" %>
+	<% end %>
+
+

@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title>Bugtracking System</title>
+		<%= stylesheet_link_tag "application" %>
+		<%= javascript_include_tag :defaults %>
+	</head>
+	
+	<body>
+		<div id="menu-links">
+			<%= link_to_unless_current "Users", :controller=>"users", :action=>"list" %>
+			|
+			<%= link_to_unless_current "Projects", :controller=>"projects", :action=>"list" %>
+			|
+			<%= link_to_unless_current "Bugs", :controller=>"bug", :action=>"list" %>
+			|
+			<%= link_to_unless_current "Comments", :controller=>"comment", :action=>"list" %>
+			|
+			<%= link_to_unless_current "UserProjects", :controller=>"userprojects", :action=>"list" %>
+		</div>
+
+
+		<p id="flash-message" style="color: green"><%= flash[:notice] %></p>
+		
+		<div id="page-content">
+			<%= yield %>
+		</div>
+		
+		<div id="footer">
+			Powered by => Mohan Kumar K.O
+		</div>
+	</body>
+	
+</html>

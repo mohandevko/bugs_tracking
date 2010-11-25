@@ -1,0 +1,104 @@
+#body
+{
+	background-color: aliceblue;
+	font-size: 12px;
+	margin: 0;
+}
+
+h1 {color:SlateBlue;font-size:21px;}
+
+
+h2 {color:SlateBlue;font-size:19px;text-decoration:blink;text-align:center;}
+
+#menu-links
+{
+	background-color:lightblue;
+	font-family:arial;
+	font-size:14px;
+	font-weight:bold;
+	padding:10px;
+}
+
+#menu-links a
+{
+	color:dodgerblue;
+}
+
+#menu-links a:hover
+{
+	background-color: dodgerblue;
+	color: white;
+}
+
+#page-content
+{
+	padding: 10px;
+	min-height:475px;
+}
+
+#page-content table
+{
+	
+	width: 100%;
+	font-size:13px;
+	border-spacing:0;
+	border-collapse: collapse;
+	background-color:AntiqueWhite;
+	
+}
+
+
+th
+{
+text-align:center;
+height:25px;
+background-color:SlateBlue;
+color:aliceBlue;
+}
+
+
+td {}
+
+a:hover {background-color:green;}   /* mouse over link */
+
+/* a:link {background-color:grey;} /* un visited link */
+a:visited {background-color:;} /* visited link */
+a:hover {background-color:green;}   /* mouse over link */
+a:active {background-color:black;}  /* selected link  */
+
+table .table-links
+{
+	font-size:12px;
+	text-align:center;
+	width:300px;
+}
+
+#footer
+{
+	background-color:Salmon;
+	color:Navy;
+	font-family:Comic Sans MS;
+	font-size:11px;
+	font-weight:bold;
+	padding:5px;
+	text-align:right;
+}
+
+#list-color
+{
+	color:OrangeRed;
+	font_size:12px;
+}
+
+#menu-links2
+{
+	background-color:SpringGreen;
+	font-family:Georgia;
+	font-size:14px;
+	font-weight:bold;
+	padding:9px;
+	}
+	
+
+
+

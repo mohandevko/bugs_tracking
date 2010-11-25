@@ -1,0 +1,8 @@
+<% form_tag :controller=>"useprojects", :action=>"update", :id=>@userproject.id do %>
+<%= error_messages_for :userproject %>
+Project_id: <%= collection_select :userproject, :project_id, @projects, :id, :title %><br />
+User_id: <%= collection_select :userproject, :user_id, @users, :id, :name %>
+<%= submit_tag "Update" %>
+<%= link_to "cancel", :controller=>"userprojects", :action=>"list" %>
+<% end %>
+
